@@ -77,10 +77,11 @@ class App extends Component {
 
   state = {
     clickedStatus: [0,0,0,0,0,0,0,0,0,0,0,0],
-    topScore: 0
+    topScore: 0,
+    gameMessage: "Click a Lion King Character below! But be careful, you can't click the same image twice!"
   }
 
-  shuffleArray = (imageArray) => { //Shuffles the image array each time the App is rendered
+  shuffleArray = imageArray => { //Shuffles the image array each time the App is rendered
     let arr = imageArray;
     let currentIndex = arr.length;
     let tempValue;
@@ -107,32 +108,39 @@ class App extends Component {
       else { //if image not previously clicked, update state at index of image to 1
         let newArr = this.state.clickedStatus;
         newArr[imageId] = 1;
-        if (this.state.topScore > this.calculateScore()) {
-          //pickle
+
+        let currentScore = this.calculateScore(this.state.clickedStatus);
+        let topScore = this.state.topScore;
+
+        if (currentScore > topScore) {
+          topScore = currentScore;
         }
         this.setState({
-          clickedImage: newArr
+          clickedImage: newArr,
+          topScore: topScore
         })
       }
   }
 
 
-  calculateScore = (arr) => { //Creates an array based on clicked status, and returns the length to calculate the score.
+  calculateScore = arr => { //Creates an array based on clicked status, and returns the length to calculate the score.
     let clickedArr = arr.filter(image => image === 1);
     return clickedArr.length;
   }
 
   gameOver = () => {
     console.log("game over");
+    this.setState({
+      clickedStatus: [0,0,0,0,0,0,0,0,0,0,0,0],
+    })
   }
-
 
 
   render() {
     return (
       <div>
-        <Navbar score={this.calculateScore(this.state.clickedStatus)} />
-        <Jumbotron />
+        <Navbar currentScore={this.calculateScore(this.state.clickedStatus)} topScore={this.state.topScore}/>
+        <Jumbotron message={this.state.gameMessage}/>
         <Wrapper>
           <div className="row">
               {this.shuffleArray(clickItems).map(image => (
