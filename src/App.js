@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import Navbar from "./components/Navbar";
-import Jumbotron from "./components/Jumbotron";
+import Instructions from "./components/Instructions";
 import Wrapper from "./components/Wrapper";
 import ImageCard from "./components/ImageCard";
 
@@ -8,69 +8,57 @@ const clickItems = [{
   id: 0,
   alt: "hyenas",
   img_url: "./images/hyenas.jpg",
-  clicked: false
 }, {
   id: 1,
   alt: "mufasa",
   img_url: "./images/mufasa.jpg",
-  clicked: false
 }, {
   id: 2,
   alt: "adult nala",
   img_url: "./images/nala_adult.jpg",
-  clicked: false
 }, {
   id: 3,
   alt: "young nala",
   img_url: "./images/nala_young.png",
-  clicked: false
 }, 
 {
   id: 4,
   alt: "pumbaa",
   img_url: "./images/pumbaa.png",
-  clicked: false
 },
 {
   id: 5,
   alt: "rafiki",
   img_url: "./images/rafiki.jpg",
-  clicked: false
 },
 {
   id: 6,
   alt: "sarabi",
   img_url: "./images/sarabi.png",
-  clicked: false
 },
 {
   id: 7,
   alt: "scar",
   img_url: "./images/scar.jpeg",
-  clicked: false
 },
 {
   id: 8,
   alt: "adult simba",
   img_url: "./images/simba_adult.jpg",
-  clicked: false
 },
 {
   id: 9,
   alt: "young simba",
   img_url: "./images/simba_young.jpeg",
-  clicked: false
 },
 {
   id: 10,
   alt: "timon",
   img_url: "./images/timon.png",
-  clicked: false
 }, {
   id: 11,
   alt: "zazu",
   img_url: "./images/zazu.jpg",
-  clicked: false
 }];
 
 class App extends Component {
@@ -78,7 +66,7 @@ class App extends Component {
   state = {
     clickedStatus: [0,0,0,0,0,0,0,0,0,0,0,0],
     topScore: 0,
-    gameMessage: "Click a Lion King Character below! But be careful, you can't click the same image twice!"
+    gameOver: false
   }
 
   shuffleArray = imageArray => { //Shuffles the image array each time the App is rendered
@@ -103,7 +91,7 @@ class App extends Component {
   determineClickStatus = imageId => { //arrow function allows this to represent the App object instance
     console.log(imageId);
       if (this.state.clickedStatus[imageId]) {
-          this.gameOver();
+          this.lostGame();
       }
       else { //if image not previously clicked, update state at index of image to 1
         let newArr = this.state.clickedStatus;
@@ -112,13 +100,22 @@ class App extends Component {
         let currentScore = this.calculateScore(this.state.clickedStatus);
         let topScore = this.state.topScore;
 
+
         if (currentScore > topScore) {
           topScore = currentScore;
         }
-        this.setState({
-          clickedImage: newArr,
-          topScore: topScore
-        })
+
+        if (currentScore === 12) { //If all images clicked, end the game
+          this.wonGame();
+        } else {
+          this.setState({ //Continue playing
+            clickedImage: newArr,
+            topScore: topScore,
+            gameOver: false
+          })
+        }
+
+
       }
   }
 
@@ -128,23 +125,35 @@ class App extends Component {
     return clickedArr.length;
   }
 
-  gameOver = () => {
-    console.log("game over");
+  lostGame = () => {
+    //Add logic to determine if won or loss
     this.setState({
       clickedStatus: [0,0,0,0,0,0,0,0,0,0,0,0],
+      gameOver: true
     })
   }
+
+  wonGame = () => {
+    console.log("you won");
+  }
+
+
 
 
   render() {
     return (
       <div>
         <Navbar currentScore={this.calculateScore(this.state.clickedStatus)} topScore={this.state.topScore}/>
-        <Jumbotron message={this.state.gameMessage}/>
+        <Instructions/>
         <Wrapper>
           <div className="row">
               {this.shuffleArray(clickItems).map(image => (
-                <ImageCard key={image.id} id={image.id} imgURL={image.img_url} onClick={this.determineClickStatus}/>
+                <ImageCard 
+                  key={image.id} 
+                  id={image.id} 
+                  imgURL={image.img_url} 
+                  onClick={this.determineClickStatus}
+                  cardClass={this.state.gameOver ? "incorrect red-border card" : "card"}/>
               ))}
             </div>
         </Wrapper>
@@ -164,16 +173,14 @@ export default App;
 
   //On click of image:
       If image was not previously clicked: 
-        - Display you guessed correctly in navbar
         - Increment the score
         - If current score > top score, reset the top score to current score
-        - If score = max score: 
-        - Shuffle the order of 16 images
-        -
+        - If score = max score: **
+        - Shuffle the order of 12 images
+        
       If image was previously clicked:
-        - Shake the images? 
-        - Diplay you guessed incorrectly in the navbar
+        - Shake the images?
         - Reset current score to 0
         - Reset all images to not clicked
-        - Shuffle the 16 images
+        - Shuffle the 12 images
 */
