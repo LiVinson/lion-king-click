@@ -3,6 +3,7 @@ import Navbar from "./components/Navbar";
 import Instructions from "./components/Instructions";
 import Wrapper from "./components/Wrapper";
 import ImageCard from "./components/ImageCard";
+import Footer from "./components/Footer";
 
 const clickItems = [{
   id: 0,
@@ -66,7 +67,8 @@ class App extends Component {
   state = {
     clickedStatus: [0,0,0,0,0,0,0,0,0,0,0,0],
     topScore: 0,
-    gameOver: false
+    gameOver: false,
+    wonGame: false
   }
 
   shuffleArray = imageArray => { //Shuffles the image array each time the App is rendered
@@ -89,7 +91,8 @@ class App extends Component {
   }
 
   determineClickStatus = imageId => { //arrow function allows this to represent the App object instance
-    console.log(imageId);
+
+
       if (this.state.clickedStatus[imageId]) {
           this.lostGame();
       }
@@ -106,12 +109,13 @@ class App extends Component {
         }
 
         if (currentScore === 12) { //If all images clicked, end the game
-          this.wonGame();
+          this.wonGame(newArr, topScore);
         } else {
           this.setState({ //Continue playing
             clickedImage: newArr,
             topScore: topScore,
-            gameOver: false
+            gameOver: false,
+            wonGame: false
           })
         }
 
@@ -133,17 +137,28 @@ class App extends Component {
     })
   }
 
-  wonGame = () => {
+  wonGame = (newArr, topScore) => {
     console.log("you won");
-  }
+
+    this.setState({ 
+      clickedStatus: [0,0,0,0,0,0,0,0,0,0,0,0],
+      topScore: topScore,
+      wonGame: true
+
+  })
+}
 
 
 
 
-  render() {
+  render = () => {
     return (
       <div>
-        <Navbar currentScore={this.calculateScore(this.state.clickedStatus)} topScore={this.state.topScore}/>
+        <Navbar 
+          currentScore={this.calculateScore(this.state.clickedStatus)} 
+          topScore={this.state.topScore}
+          message = {this.state.wonGame ? "" : "hide-text"}
+          />
         <Instructions/>
         <Wrapper>
           <div className="row">
@@ -157,6 +172,7 @@ class App extends Component {
               ))}
             </div>
         </Wrapper>
+        <Footer />
       </div>
 
     );
