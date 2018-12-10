@@ -13,7 +13,7 @@ Interested in running the game locally and making some changes of your own? Feel
 
 ## Running the tests
 
-Explain how to run the automated tests for this system
+Coming Soon!
 
 ## Built With
 
@@ -21,13 +21,11 @@ Explain how to run the automated tests for this system
 * [Bootstrap](https://getbootstrap.com/) - For styling
 * [Jest](https://jestjs.io/) - For component testing
 
-## Versioning
 
-We use [SemVer](http://semver.org/) for versioning. For the versions available, see the [tags on this repository](https://github.com/your/project/tags).
 
 ## Authors
 
-* **Lisa Vinson*** - *Initial work* - [LiVinson](https://github.com/LiVinson)
+* **Lisa Vinson** - [LiVinson](https://github.com/LiVinson)
 
 ## License
 
