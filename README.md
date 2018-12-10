@@ -1,44 +1,34 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# Click: Lion King Edition
 
-## Available Scripts
+A fun mini-game built with React.js  to test your memory skills. Try to click on each Lion King character without clicking the same image twice. Look carefully, the images move after each click!
 
-In the project directory, you can run:
+[Play Here](https://livinson.github.io/lion-king-clicky/)
 
-### `npm start`
+## Getting Started
 
-Runs the app in the development mode.<br>
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+Interested in running the game locally and making some changes of your own? Feel free to clone the repository and follow the following steps:
 
-The page will reload if you make edits.<br>
-You will also see any lint errors in the console.
+1. While in the root directory of the project, run ```yarn add```  from the command line to install the required npm packages.
+2. Once installed, run ```yarn start``` to start the development server
 
-### `npm test`
+## Running the tests
 
-Launches the test runner in the interactive watch mode.<br>
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+Explain how to run the automated tests for this system
 
-### `npm run build`
+## Built With
 
-Builds the app for production to the `build` folder.<br>
-It correctly bundles React in production mode and optimizes the build for the best performance.
+* [React.js](http://www.dropwizard.io/1.0.2/docs/) using ```create-react-app``` for the framework
+* [Bootstrap](https://getbootstrap.com/) - For styling
+* [Jest](https://jestjs.io/) - For component testing
 
-The build is minified and the filenames include the hashes.<br>
-Your app is ready to be deployed!
+## Versioning
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+We use [SemVer](http://semver.org/) for versioning. For the versions available, see the [tags on this repository](https://github.com/your/project/tags).
 
-### `npm run eject`
+## Authors
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+* **Lisa Vinson*** - *Initial work* - [LiVinson](https://github.com/LiVinson)
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+## License
 
-Instead, it will copy all the configuration files and the transitive dependencies (Webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
+This project is licensed under the MIT License

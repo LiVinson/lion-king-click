@@ -9,3 +9,7 @@
 .green-text{
     color: green;
 }
+
+.hide-text{
+    display: none;
+}

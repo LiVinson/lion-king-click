@@ -14,6 +14,7 @@ if (props.currentScore && props.currentScore === props.topScore){
   return (<nav className="navCustom navbar navbar-light bg-info sticky-top">
   
   <h2 className="text-white">Clicky Game: <span>Lion King Edition</span></h2>
+  <h3 className = {props.message}>You Won!</h3>
   <h3>Score:<span className={scoreColor}> {props.currentScore}</span> | Top Score: <span className = {highScoreColor}>{props.topScore}</span></h3>
 </nav>)
 }
