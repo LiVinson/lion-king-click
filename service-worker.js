@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/3.6.3/workbox-sw.js");
 
 importScripts(
-  "/lion-king-click/precache-manifest.50815c0da712b5108623b173a2a25cbe.js"
+  "/lion-king-click/precache-manifest.c9750455186aa0a993a1ef8ea0fbf150.js"
 );
 
 workbox.clientsClaim();
