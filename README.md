@@ -2,7 +2,7 @@
 
 A fun mini-game built with React.js  to test your memory skills. Try to click on each Lion King character without clicking the same image twice. Look carefully, the images move after each click!
 
-[Play Here](https://livinson.github.io/lion-king-clicky/)
+[Play Here](https://livinson.github.io/lion-king-click/)
 
 ## Getting Started
 
