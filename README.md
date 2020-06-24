@@ -1,32 +1,42 @@
 # Click: Lion King Edition
 
-A fun mini-game built with React.js  to test your memory skills. Try to click on each Lion King character without clicking the same image twice. Look carefully, the images move after each click!
+A fun mini-game to test your memory skills.[Play Here!](https://livinson.github.io/lion-king-click/)
 
-[Play Here](https://livinson.github.io/lion-king-click/)
+## About 📝
 
-## Getting Started
+Try to click on each Lion King character without clicking the same image twice. Look carefully, the images shuffle after each click!
+
+![Lion King Click screenshot](./public/images/lion-king-1.png?raw=true)
+
+## Run Locally 🏃🏿‍♀️
 
 Interested in running the game locally and making some changes of your own? Feel free to clone the repository and follow the following steps:
 
-1. While in the root directory of the project, run ```yarn add```  from the command line to install the required npm packages.
-2. Once installed, run ```yarn start``` to start the development server
+Clone this repository and navigate into the lion-king-click directory.
 
-## Running the tests
+```bash
+git clone git@github.com:LiVinson/lion-king-click.git
+cd lion-king-click
+```
 
-Coming Soon!
+Install all of the dependencies listed in the package.json
 
-## Built With
+```node
+yarn add
+```
 
-* [React.js](http://www.dropwizard.io/1.0.2/docs/) using ```create-react-app``` for the framework
-* [Bootstrap](https://getbootstrap.com/) - For styling
-* [Jest](https://jestjs.io/) - For component testing
+Open the application using live server
 
+```bash
+yarn start
+```
 
+## Tools and Technology 💻
 
-## Authors
+* Bootstrap
+* JavaScript
+* React.js
 
-* **Lisa Vinson** - [LiVinson](https://github.com/LiVinson)
+## License 🔓
 
-## License
-
-This project is licensed under the MIT License
+This project is licensed under the [MIT license](https://github.com/LiVinson/lion-king-click/blob/master/LICENSE).
