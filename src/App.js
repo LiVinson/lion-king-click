@@ -9,62 +9,62 @@ const clickItems = [
   {
     id: 0,
     alt: "hyenas",
-    img_url: "./images/hyenas.jpg"
+    img_url: `${process.env.PUBLIC_URL}/images/hyenas.jpg`
   },
   {
     id: 1,
     alt: "mufasa",
-    img_url: "./images/mufasa.jpg"
+    img_url: `${process.env.PUBLIC_URL}/images/mufasa.jpg`
   },
   {
     id: 2,
     alt: "adult nala",
-    img_url: "./images/nala_adult.jpg"
+    img_url: `${process.env.PUBLIC_URL}/images/nala_adult.jpg`
   },
   {
     id: 3,
     alt: "young nala",
-    img_url: "./images/nala_young.png"
+    img_url: `${process.env.PUBLIC_URL}/images/nala_young.png`
   },
   {
     id: 4,
     alt: "pumbaa",
-    img_url: "./images/pumbaa.png"
+    img_url: `${process.env.PUBLIC_URL}/images/pumbaa.png`
   },
   {
     id: 5,
     alt: "rafiki",
-    img_url: "./images/rafiki.jpg"
+    img_url: `${process.env.PUBLIC_URL}/images/rafiki.jpg`
   },
   {
     id: 6,
     alt: "sarabi",
-    img_url: "./images/sarabi.png"
+    img_url: `${process.env.PUBLIC_URL}/images/sarabi.png`
   },
   {
     id: 7,
     alt: "scar",
-    img_url: "./images/scar.jpeg"
+    img_url: `${process.env.PUBLIC_URL}/images/scar.jpeg`
   },
   {
     id: 8,
     alt: "adult simba",
-    img_url: "./images/simba_adult.jpg"
+    img_url: `${process.env.PUBLIC_URL}/images/simba_adult.jpg`
   },
   {
     id: 9,
     alt: "young simba",
-    img_url: "./images/simba_young.jpeg"
+    img_url: `${process.env.PUBLIC_URL}/images/simba_young.jpeg`
   },
   {
     id: 10,
     alt: "timon",
-    img_url: "./images/timon.png"
+    img_url: `${process.env.PUBLIC_URL}/images/timon.png`
   },
   {
     id: 11,
     alt: "zazu",
-    img_url: "./images/zazu.jpg"
+    img_url: `${process.env.PUBLIC_URL}/images/zazu.jpg`
   }
 ]
 
