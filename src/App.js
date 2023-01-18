@@ -83,8 +83,6 @@ const initialImages = [
 
 
 function App() {
-
-
   const [gameState, setGameState] = useState({
     score: 0,
     topScore: 0,
@@ -94,7 +92,25 @@ function App() {
     selectedImageId: null
   })
 
-  
+  //Restart game state when starting new game
+  useEffect(()=> {
+    if(gameState.gameOver) {
+      setGameState({
+        ...gameState,
+        score:0,
+        gameWon: false,
+
+      })
+    }
+  }, [gameState.gameOver])
+
+
+  //Check if game was won
+  useEffect(()=> {
+    if (gameState.score >= gameState.clickedImages.length) {
+      gameOver(true);
+    }
+  }, [gameState.score])
 
   const shuffleArray = imageArray => {
     //Shuffles the image array each time the App is rendered
@@ -117,52 +133,38 @@ function App() {
     return arr //Once all are shuffled, return array
   }
 
-
-
-
   const handleImageClick = imageId => {
-    console.log(imageId)
-    console.log("click ", gameState.clickedImages.find(image => image.id === imageId).alt)
 
       //If previously clicked image selected, lose game
-
       if (gameState.clickedImages.some((image => image.id === imageId && image.clicked))) {
-        console.log("Lost");
-
-        const resetImages = gameState.clickedImages.map(image => {
-          image.clicked = false;
-          return image
-        })
-        setGameState({
-          ...gameState,
-          gameOver: true,
-          score: 0,
-          gameWon:false,
-          clickedImages: resetImages,
-        })
+        gameOver(false);
       } else {
-        console.log("correct")
-        //if image not previously clicked, update clicked to true
+        //if image not previously clicked, update clicked to true, increment score, top score
         let newArr = gameState.clickedImages.map(image => image.id === imageId ? { ...image, clicked: true } : image)
 
         setGameState({
           ...gameState,
           score: gameState.score + 1,
           topScore: gameState.score + 1 >= gameState.topScore ? gameState.score + 1 : gameState.topScore,
-          clickedImages: newArr,
-          gameWon: gameState.score + 1 === gameState.clickedImages.length ? true : false,
-          gameOver: false
-
+          clickedImages: newArr
         })
       }
     }
 
   
+const gameOver = (gameWon) => {
+  const resetImages = gameState.clickedImages.map(image => {
+    image.clicked = false;
+    return image
+  })
 
-
-
-
-
+  setGameState({
+    ...gameState,
+    clickedImages: resetImages,
+    gameWon: gameWon,
+    gameOver: true
+  })
+}
 
   return (
     <div>
@@ -193,15 +195,3 @@ function App() {
 
 export default App
 
-/*
-
-
-
-- On click of images
-  -If new game - reset gameOver
-
-- Determine game reset behavior 
-    - If starting a new game, reset gameOver, gameWon, score
-
-
-*/
