@@ -88,7 +88,7 @@ function App() {
     topScore: 0,
     gameOver: false,
     gameWon: false,
-    clickedImages: initialImages,
+    images: initialImages,
     selectedImageId: null
   })
 
@@ -107,7 +107,7 @@ function App() {
 
   //Check if game was won
   useEffect(()=> {
-    if (gameState.score >= gameState.clickedImages.length) {
+    if (gameState.score >= gameState.images.length) {
       gameOver(true);
     }
   }, [gameState.score])
@@ -136,31 +136,32 @@ function App() {
   const handleImageClick = imageId => {
 
       //If previously clicked image selected, lose game
-      if (gameState.clickedImages.some((image => image.id === imageId && image.clicked))) {
+      if (gameState.images.some((image => image.id === imageId && image.clicked))) {
         gameOver(false);
       } else {
         //if image not previously clicked, update clicked to true, increment score, top score
-        let newArr = gameState.clickedImages.map(image => image.id === imageId ? { ...image, clicked: true } : image)
+        let newArr = gameState.images.map(image => image.id === imageId ? { ...image, clicked: true } : image)
 
         setGameState({
           ...gameState,
           score: gameState.score + 1,
           topScore: gameState.score + 1 >= gameState.topScore ? gameState.score + 1 : gameState.topScore,
-          clickedImages: newArr
+          images: newArr,
+          gameOver: false
         })
       }
     }
 
   
 const gameOver = (gameWon) => {
-  const resetImages = gameState.clickedImages.map(image => {
+  const resetImages = gameState.images.map(image => {
     image.clicked = false;
     return image
   })
 
   setGameState({
     ...gameState,
-    clickedImages: resetImages,
+    images: resetImages,
     gameWon: gameWon,
     gameOver: true
   })
@@ -176,7 +177,7 @@ const gameOver = (gameWon) => {
       <Instructions />
       <Wrapper>
         <div className="row">
-          {shuffleArray(gameState.clickedImages).map(image => (
+          {shuffleArray(gameState.images).map(image => (
             <ImageCard
               key={image.id}
               id={image.id}
