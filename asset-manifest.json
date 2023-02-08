@@ -1,13 +1,13 @@
 {
-  "main.css": "/lion-king-click/static/css/main.b6878c99.chunk.css",
-  "main.js": "/lion-king-click/static/js/main.41a870cd.chunk.js",
-  "main.js.map": "/lion-king-click/static/js/main.41a870cd.chunk.js.map",
-  "static/js/1.bdef4904.chunk.js": "/lion-king-click/static/js/1.bdef4904.chunk.js",
-  "static/js/1.bdef4904.chunk.js.map": "/lion-king-click/static/js/1.bdef4904.chunk.js.map",
-  "runtime~main.js": "/lion-king-click/static/js/runtime~main.3263a54e.js",
-  "runtime~main.js.map": "/lion-king-click/static/js/runtime~main.3263a54e.js.map",
-  "static/css/main.b6878c99.chunk.css.map": "/lion-king-click/static/css/main.b6878c99.chunk.css.map",
-  "index.html": "/lion-king-click/index.html",
-  "precache-manifest.c9750455186aa0a993a1ef8ea0fbf150.js": "/lion-king-click/precache-manifest.c9750455186aa0a993a1ef8ea0fbf150.js",
-  "service-worker.js": "/lion-king-click/service-worker.js"
+  "files": {
+    "main.css": "/lion-king-click/static/css/main.c8366b71.css",
+    "main.js": "/lion-king-click/static/js/main.ec2b2cb9.js",
+    "index.html": "/lion-king-click/index.html",
+    "main.c8366b71.css.map": "/lion-king-click/static/css/main.c8366b71.css.map",
+    "main.ec2b2cb9.js.map": "/lion-king-click/static/js/main.ec2b2cb9.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.c8366b71.css",
+    "static/js/main.ec2b2cb9.js"
+  ]
 }
