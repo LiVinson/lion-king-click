@@ -1,7 +1,12 @@
 import React from "react"
 import "./Navbar.css"
 
-const Navbar = props => {
+interface Props {
+  currentScore:number;
+  topScore:number;
+  message:string;
+}
+const Navbar = (props: Props) => {
   let scoreColor
   let highScoreColor
   if (!props.currentScore) {

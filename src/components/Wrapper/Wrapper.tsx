@@ -1,7 +1,10 @@
 import React from "react";
 import "./Wrapper.css";
 
-const Wrapper = props => (
+interface Props {
+    children: any;
+}
+const Wrapper = (props: Props) => (
 <div className="wrapper-custom container-fluid">
     {props.children}
 </div>

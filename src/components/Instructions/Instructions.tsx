@@ -1,7 +1,8 @@
 import React from "react";
 import "./Instructions.css";
 
-const Instructions = props => (
+
+const Instructions = () => (
     
     <div className="card bg-light text-center instructions-div">
         <div className="card-body">

@@ -1,3 +1,4 @@
+import React from "react";
 import { useState, useEffect } from "react"
 import Navbar from "./components/Navbar"
 import Instructions from "./components/Instructions"
@@ -5,75 +6,84 @@ import Wrapper from "./components/Wrapper"
 import ImageCard from "./components/ImageCard"
 import Footer from "./components/Footer"
 
-const initialImages = [
+
+interface Image {
+  id: string;
+  alt: string;
+  img_url: string;
+  clicked: boolean;
+}
+
+
+const initialImages: Image[] = [
   {
-    id: 0,
+    id: "0",
     alt: "hyenas",
     img_url: `${process.env.PUBLIC_URL}/images/hyenas.jpg`,
     clicked: false
   },
   {
-    id: 1,
+    id: "1",
     alt: "mufasa",
     img_url: `${process.env.PUBLIC_URL}/images/mufasa.jpg`,
     clicked: false
   },
   {
-    id: 2,
+    id: "2",
     alt: "adult nala",
     img_url: `${process.env.PUBLIC_URL}/images/nala_adult.jpg`,
     clicked: false
   },
   {
-    id: 3,
+    id: "3",
     alt: "young nala",
     img_url: `${process.env.PUBLIC_URL}/images/nala_young.png`,
     clicked: false
   },
   {
-    id: 4,
+    id: "4",
     alt: "pumbaa",
     img_url: `${process.env.PUBLIC_URL}/images/pumbaa.png`,
     clicked: false
   },
   {
-    id: 5,
+    id: "5",
     alt: "rafiki",
     img_url: `${process.env.PUBLIC_URL}/images/rafiki.jpg`,
     clicked: false
   },
   {
-    id: 6,
+    id: "6",
     alt: "sarabi",
     img_url: `${process.env.PUBLIC_URL}/images/sarabi.png`,
     clicked: false
   },
   {
-    id: 7,
+    id: "7",
     alt: "scar",
     img_url: `${process.env.PUBLIC_URL}/images/scar.jpeg`,
     clicked: false
   },
   {
-    id: 8,
+    id: "8",
     alt: "adult simba",
     img_url: `${process.env.PUBLIC_URL}/images/simba_adult.jpg`,
     clicked: false
   },
   {
-    id: 9,
+    id: "9",
     alt: "young simba",
     img_url: `${process.env.PUBLIC_URL}/images/simba_young.jpeg`,
     clicked: false
   },
   {
-    id: 10,
+    id: "10",
     alt: "timon",
     img_url: `${process.env.PUBLIC_URL}/images/timon.png`,
     clicked: false
   },
   {
-    id: 11,
+    id: "11",
     alt: "zazu",
     img_url: `${process.env.PUBLIC_URL}/images/zazu.jpg`,
     clicked: false
@@ -112,7 +122,7 @@ function App() {
     }
   }, [gameState.score])
 
-  const shuffleArray = imageArray => {
+  const shuffleArray = (imageArray: Image[]) => {
     //Shuffles the image array each time the App is rendered
     let arr = imageArray
     let currentIndex = arr.length
@@ -133,7 +143,7 @@ function App() {
     return arr //Once all are shuffled, return array
   }
 
-  const handleImageClick = imageId => {
+  const handleImageClick = (imageId: string) => {
 
       //If previously clicked image selected, lose game
       if (gameState.images.some((image => image.id === imageId && image.clicked))) {
@@ -153,7 +163,7 @@ function App() {
     }
 
   
-const gameOver = (gameWon) => {
+const gameOver = (gameWon: boolean) => {
   const resetImages = gameState.images.map(image => {
     image.clicked = false;
     return image
@@ -194,5 +204,5 @@ const gameOver = (gameWon) => {
 
 }
 
-export default App
+export default App;
 
